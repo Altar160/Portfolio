@@ -1,0 +1,752 @@
+/* ================================================== */
+/* BASE                                               */
+/* ================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  background: #1a1d1a;
+  color: #f7f7f2;
+
+  overflow-x: hidden;
+
+  font-family: "Space Grotesk", sans-serif;
+}
+
+/* ================================================== */
+/* HEADER                                             */
+/* ================================================== */
+
+.site-header {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 95px;
+  padding: 0 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #0e1400;
+
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(156, 227, 125, 0.15);
+
+  z-index: 9999;
+}
+
+.logo {
+  color: #9ce37d;
+
+  text-decoration: none;
+
+  font-size: 28px;
+  font-weight: 500;
+}
+
+/* ================================================== */
+/* NAVIGATION                                         */
+/* ================================================== */
+
+.nav {
+  display: flex;
+  align-items: center;
+
+  gap: 80px;
+}
+
+.nav-link {
+  position: relative;
+
+  color: #f7f7f2;
+
+  text-decoration: none;
+
+  font-size: 28px;
+  font-weight: 400;
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #9ce37d;
+}
+
+/* Trait vert sous la page active */
+
+.nav-link.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -18px;
+
+  transform: translateX(-50%);
+
+  width: 70px;
+  height: 4px;
+
+  border-radius: 999px;
+
+  background: #9ce37d;
+}
+
+/* ================================================== */
+/* DROPDOWN                                           */
+/* ================================================== */
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown summary {
+  list-style: none;
+}
+
+.dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.dropdown-menu {
+  position: absolute;
+
+  top: 70px;
+  right: -20px;
+
+  width: 420px;
+
+  padding-right: 25px;
+
+  border-right: 4px solid #9ce37d;
+
+  display: none;
+}
+
+.dropdown[open] .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+
+  color: #f7f7f2;
+
+  text-decoration: none;
+
+  text-align: right;
+
+  font-size: 28px;
+  line-height: 1.9;
+
+  white-space: nowrap;
+
+  transition: color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  color: #9ce37d;
+}
+
+/* ================================================== */
+/* PAGE PROJET                                        */
+/* ================================================== */
+
+.project-page {
+  min-height: 100vh;
+
+  padding-top: 95px;
+
+  background: #1a1d1a;
+}
+
+/* ================================================== */
+/* INTRODUCTION DU PROJET                             */
+/* ================================================== */
+
+.project-intro {
+  width: 100%;
+  max-width: 1300px;
+
+  margin: 0 auto;
+
+  padding: 95px 60px 60px;
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) 300px;
+
+  align-items: center;
+
+  gap: 90px;
+}
+
+.project-intro-text {
+  min-width: 0;
+}
+
+.project-type {
+  margin: 0 0 22px;
+
+  color: #9ce37d;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+}
+
+.project-intro h1 {
+  margin: 0;
+
+  color: #f7f7f2;
+
+  font-size: clamp(70px, 9vw, 140px);
+
+  font-weight: 600;
+
+  line-height: 0.9;
+
+  letter-spacing: -5px;
+}
+
+.project-hook {
+  max-width: 760px;
+
+  margin: 35px 0 0;
+
+  color: #d9ded7;
+
+  font-size: 23px;
+  line-height: 1.55;
+}
+
+.project-hook strong {
+  color: #faf2a1;
+
+  font-weight: 600;
+}
+
+/* ================================================== */
+/* LOGO DU PROJET                                     */
+/* ================================================== */
+
+.project-logo {
+  width: 100%;
+
+  min-height: 0;
+
+  padding: 0;
+
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: flex-end;
+
+  background: none;
+
+  border: none;
+}
+
+.project-logo img {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+
+  height: auto;
+
+  object-fit: contain;
+}
+
+/* ================================================== */
+/* INFORMATIONS RAPIDES                               */
+/* ================================================== */
+
+.project-meta {
+  width: calc(100% - 120px);
+
+  max-width: 1180px;
+
+  margin: 0 auto 100px;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  border-top: 1px solid rgba(156, 227, 125, 0.2);
+  border-bottom: 1px solid rgba(156, 227, 125, 0.2);
+}
+
+.project-meta > div {
+  min-width: 0;
+
+  padding: 25px 30px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+
+  border-right: 1px solid rgba(156, 227, 125, 0.15);
+}
+
+.project-meta > div:first-child {
+  padding-left: 0;
+}
+
+.project-meta > div:last-child {
+  border-right: none;
+}
+
+.meta-label {
+  color: #9ce37d;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+.meta-value {
+  color: #f7f7f2;
+
+  font-size: 18px;
+}
+
+/* ================================================== */
+/* TITRES DE SECTIONS                                 */
+/* ================================================== */
+
+.section-heading {
+  margin-bottom: 32px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+.section-heading span {
+  color: #9ce37d;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.section-heading h2 {
+  margin: 0;
+
+  color: #f7f7f2;
+
+  font-size: 32px;
+  font-weight: 500;
+}
+
+/* Petit trait après certains titres */
+
+.section-heading::after {
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  margin-left: 10px;
+
+  background: rgba(156, 227, 125, 0.15);
+}
+
+/* ================================================== */
+/* GAMEPLAY                                           */
+/* ================================================== */
+
+.project-gameplay {
+  width: 100%;
+
+  max-width: 1300px;
+
+  margin: 0 auto;
+
+  padding: 0 60px 110px;
+}
+
+.gameplay-grid {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 40px;
+}
+
+.video-container {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  background: #101310;
+
+  border: 1px solid rgba(156, 227, 125, 0.25);
+}
+
+.video-container video {
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  object-fit: cover;
+}
+
+/* ================================================== */
+/* COMPÉTENCES ET CONTRIBUTIONS                       */
+/* ================================================== */
+
+.project-work {
+  width: 100%;
+
+  max-width: 1300px;
+
+  margin: 0 auto;
+
+  padding: 0 60px 110px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+}
+
+.work-column {
+  min-width: 0;
+}
+
+.work-column:first-child {
+  padding-right: 60px;
+
+  border-right: 1px solid rgba(156, 227, 125, 0.2);
+}
+
+.project-list {
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+.project-list li {
+  position: relative;
+
+  padding: 16px 10px 16px 28px;
+
+  color: #dfe5dc;
+
+  font-size: 18px;
+  line-height: 1.5;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.project-list li:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.project-list li::before {
+  content: "◇";
+
+  position: absolute;
+
+  top: 16px;
+  left: 0;
+
+  color: #9ce37d;
+}
+
+/* ================================================== */
+/* PRÉSENTATION TECHNIQUE / CASE STUDY                 */
+/* ================================================== */
+
+.project-case-study {
+  width: 100%;
+
+  max-width: 1300px;
+
+  margin: 0 auto;
+
+  padding: 0 60px 110px;
+}
+
+.case-study-content {
+  max-width: 850px;
+
+  padding-left: 40px;
+
+  border-left: 2px solid rgba(156, 227, 125, 0.35);
+}
+
+.case-study-content p {
+  margin: 0 0 24px;
+
+  color: #dfe5dc;
+
+  font-size: 19px;
+
+  line-height: 1.8;
+}
+
+.case-study-content p:last-child {
+  margin-bottom: 0;
+}
+
+.case-study-content strong {
+  color: #faf2a1;
+
+  font-weight: 600;
+}
+
+/* ================================================== */
+/* BLOC GITHUB                                        */
+/* ================================================== */
+
+.project-source {
+  width: calc(100% - 120px);
+
+  max-width: 1180px;
+
+  margin: 0 auto 110px;
+
+  padding: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 50px;
+
+  background: #202620;
+
+  border: 1px solid rgba(156, 227, 125, 0.25);
+}
+
+.project-source p {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: #dfe5dc;
+
+  font-size: 18px;
+
+  line-height: 1.6;
+}
+
+.github-button {
+  flex-shrink: 0;
+
+  padding: 17px 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 28px;
+
+  color: #1a1d1a;
+
+  background: #9ce37d;
+
+  text-decoration: none;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.github-button:hover {
+  transform: translateY(-3px);
+
+  background: #b4ed9b;
+}
+
+.github-button span {
+  font-size: 24px;
+  line-height: 1;
+}
+
+/* ================================================== */
+/* FOOTER                                             */
+/* ================================================== */
+
+.footer {
+  background: #0e1400;
+
+  border-top: 1px solid rgba(156, 227, 125, 0.15);
+
+  padding: 24px 60px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-left {
+  display: flex;
+
+  align-items: center;
+}
+
+.footer-logo,
+.footer-left img {
+  height: 110px;
+
+  width: auto;
+
+  object-fit: contain;
+}
+
+.footer-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 60px;
+}
+
+.footer-right a {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-right img {
+  height: 42px;
+
+  width: auto;
+
+  opacity: 0.85;
+
+  transition: all 0.25s ease;
+}
+
+.footer-right img:hover {
+  opacity: 1;
+
+  transform: translateY(-2px);
+}
+
+/* ================================================== */
+/* RESPONSIVE - PAGE PROJET UNIQUEMENT                */
+/* ================================================== */
+
+@media (max-width: 1000px) {
+  .project-intro {
+    grid-template-columns: 1fr 250px;
+
+    gap: 50px;
+
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .project-meta {
+    width: calc(100% - 80px);
+  }
+
+  .project-gameplay,
+  .project-work,
+  .project-case-study {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .project-source {
+    width: calc(100% - 80px);
+  }
+}
+
+@media (max-width: 800px) {
+  .project-intro {
+    grid-template-columns: 1fr;
+
+    padding-top: 70px;
+  }
+
+  .project-intro h1 {
+    font-size: clamp(60px, 17vw, 100px);
+
+    letter-spacing: -3px;
+  }
+
+  .project-logo {
+    max-width: 320px;
+  }
+
+  .project-meta {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .project-meta > div {
+    border-bottom: 1px solid rgba(156, 227, 125, 0.15);
+  }
+
+  .project-meta > div:nth-child(2) {
+    border-right: none;
+  }
+
+  .project-meta > div:nth-child(3),
+  .project-meta > div:nth-child(4) {
+    border-bottom: none;
+  }
+
+  .project-meta > div:first-child {
+    padding-left: 30px;
+  }
+
+  .project-work {
+    grid-template-columns: 1fr;
+
+    gap: 70px;
+  }
+
+  .work-column:first-child {
+    padding-right: 0;
+
+    border-right: none;
+  }
+
+  .project-source {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+}
